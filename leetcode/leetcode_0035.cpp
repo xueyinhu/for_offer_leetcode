@@ -18,7 +18,7 @@ public:
     }
 
     int func(vector<int>& nums, int target, int start, int end) {
-        if (start >= end - 1) return nums[start] > target ? start : start + 1;
+        if (start >= end - 1) return nums[start] >= target ? start : nums[end] < target ? end + 1: start + 1;
         int mid = (start + end) >> 1;
         if (nums[mid] == target) return mid;
         else if (nums[mid] > target) return func(nums, target, start, mid);
