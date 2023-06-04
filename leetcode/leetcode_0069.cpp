@@ -5,9 +5,21 @@
  * 0 <= x <= 231 - 1
  */
 
+#include<math.h>
+
 class Solution {
 public:
     int mySqrt(int x) {
+        return func(0, int(pow(2, 16)), x);
+    }
 
+    // 二分查找 会 超时
+    int func(int min, int max, int x) {
+        if (min >= max - 1) return min;
+        int mid = (min >> 2) + (max >> 2);
+        int v = int(pow(mid, 2));
+        if(v == x) return mid;
+        else if (v > x) return func(min, mid, x);
+        else return func(mid, max, x);
     }
 };
