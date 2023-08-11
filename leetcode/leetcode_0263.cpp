@@ -16,6 +16,10 @@ public:
     }
 };
 
+
+#include <vector>
+using namespace std;
+
 class Solution {
 public:
     bool isUgly(int n) {
