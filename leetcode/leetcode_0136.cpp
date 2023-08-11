@@ -9,25 +9,13 @@
 #include <vector>
 using namespace std;
 
-// class Solution {
-// public:
-//     int singleNumber(vector<int>& nums) {
-//         int result = 0;
-//         for (int i : nums) {
-//             result ^= i;
-//         }
-//         return result;
-//     }
-// };
-
 class Solution {
 public:
-    int hammingWeight(uint32_t n) {
-        int ret = 0;
-        while (n) {
-            n &= n - 1;
-            ret++;
+    int singleNumber(vector<int>& nums) {
+        int result = 0;
+        for (int i : nums) {
+            result ^= i;
         }
-        return ret;
+        return result;
     }
 };

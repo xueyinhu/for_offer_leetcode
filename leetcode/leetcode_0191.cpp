@@ -6,15 +6,27 @@
 
 #include <stdint.h>
 
+// class Solution {
+// public:
+//     int hammingWeight(uint32_t n) {
+//         uint32_t h = 1;
+//         int s = n | h == n ? 1 : 0;
+//         for (int i = 1; i < 32; i++) {
+//             h = h << 1;
+//             s += n | h == n ? 1 : 0;
+//         }
+//         return s;
+//     }
+// };
+
 class Solution {
 public:
     int hammingWeight(uint32_t n) {
-        uint32_t h = 1;
-        int s = n | h == n ? 1 : 0;
-        for (int i = 1; i < 32; i++) {
-            h = h << 1;
-            s += n | h == n ? 1 : 0;
+        int ret = 0;
+        while (n) {
+            n &= n - 1;
+            ret++;
         }
-        return s;
+        return ret;
     }
 };
